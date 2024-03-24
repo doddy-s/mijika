@@ -1,0 +1,21 @@
+{
+  "name": "mijika",
+  "version": "1.0.0",
+  "description": "link shortener back-end using express",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest",
+    "serve": "node src/index.js"
+  },
+  "author": "doddy-s",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^5.7.1",
+    "@types/jest": "^29.5.11",
+    "bcrypt": "^5.1.1",
+    "express": "^4.18.2",
+    "jest": "^29.7.0",
+    "jest-mock-extended": "^3.0.5",
+    "prisma": "^5.7.1"
+  }
+}

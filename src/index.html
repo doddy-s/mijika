@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mijika</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10"
+        integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
+        crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"> -->
+</head>
+
+<body>
+    <h1>Welcome to Mijika Link Shortener</h1>
+    <p>Remember, you can always [this site domain]/your_short_link if you created your short link here</p>
+    <h2>Create your short link here</h2>
+
+    <form id="CreateLink" hx-post="/htmx/link" hx-on::after-request="if(event.detail.successful) this.reset()"
+        onsubmit="event.preventDefault();" hx-target="#CreateResult">
+        <input type="text" id="long" name="long" placeholder="Your long url" required>
+        <input type="text" id="short" name="short" placeholder="Your desired short url" required>
+        <input type="password" id="password" name="password" placeholder="Password for deleting link" required>
+        <button type="submit">Create</button>
+    </form>
+
+    <div id="CreateResult"></div>
+
+    <h2>Or delete your short link here</h2>
+
+    <form id="DeleteLink" hx-delete="/htmx/link" hx-on::after-request="if(event.detail.successful) this.reset()"
+        onsubmit="event.preventDefault();" hx-target="#DeleteResult">
+        <input type="text" id="short" name="short" placeholder="Your already created short url" required>
+        <input type="password" id="password" name="password" placeholder="Password for deleting link" required>
+        <button type="submit">Delete</button>
+    </form>
+
+    <div id="DeleteResult"></div>
+
+    <h1>User Agreement</h1>
+
+    <p><strong>1. ACCEPTANCE OF TERMS</strong></p>
+    <p>By using our link shortening services, you agree to be bound by the terms and conditions of this Agreement. If
+        you do not agree to these terms, please do not use our services.</p>
+
+    <p><strong>2. DESCRIPTION OF SERVICES</strong></p>
+    <p>The Company provides a link shortening service that allows Users to create shortened URLs for easier sharing and
+        tracking. The Company may, at its sole discretion, modify or discontinue any aspect of the service without
+        notice.</p>
+
+    <p><strong>3. USER ACCOUNTS</strong></p>
+    <p>To use certain features of the service, you may be required to register for an account. You agree to provide
+        accurate, current, and complete information during the registration process and to update such information to
+        keep it accurate, current, and complete. You are responsible for maintaining the confidentiality of your account
+        and password and for restricting access to your computer.</p>
+
+    <p><strong>4. USER CONDUCT</strong></p>
+    <p>You agree not to use the link shortening services for any unlawful or prohibited purpose. You also agree not to:
+    </p>
+    <ul>
+        <li>Violate any applicable laws or regulations.</li>
+        <li>Infringe upon the intellectual property rights of others.</li>
+        <li>Transmit any content that is harmful, offensive, or violates any third-party rights.</li>
+        <li>Attempt to gain unauthorized access to the service, other accounts, or computer systems.</li>
+    </ul>
+
+    <p><strong>5. LINK OWNERSHIP</strong></p>
+    <p>While the Company provides the service to shorten links, the ownership and responsibility for the content of the
+        links remain with the User. The Company does not endorse or guarantee the accuracy of the content linked through
+        its service.</p>
+
+    <p><strong>6. DISCLAIMER OF WARRANTIES</strong></p>
+    <p>The link shortening services are provided "as is" and "as available" without any warranties of any kind, either
+        expressed or implied. The Company disclaims all warranties, including but not limited to the implied warranties
+        of merchantability, fitness for a particular purpose, and non-infringement.</p>
+
+    <p><strong>7. LIMITATION OF LIABILITY</strong></p>
+    <p>In no event shall the Company be liable for any indirect, incidental, special, consequential, or punitive
+        damages, or any loss of profits or revenues, whether incurred directly or indirectly, or any loss of data, use,
+        goodwill, or other intangible losses resulting from (a) your use or inability to use the service; (b) any
+        unauthorized access to or use of our servers and/or any personal information stored therein.</p>
+
+    <p><strong>8. CHANGES TO TERMS</strong></p>
+    <p>The Company reserves the right to modify or replace any part of this Agreement at any time. It is your
+        responsibility to check this Agreement periodically for changes. Your continued use of the service following the
+        posting of any changes to this Agreement constitutes acceptance of those changes.</p>
+
+    <p><strong>9. TERMINATION</strong></p>
+    <p>The Company may terminate or suspend your access to the link shortening services at its sole discretion, without
+        notice, for conduct that it believes violates this Agreement or is harmful to other Users, the Company, or third
+        parties.</p>
+
+    <p><strong>10. GOVERNING LAW</strong></p>
+    <p>This Agreement shall be governed by and construed in accordance with the laws of [Your Jurisdiction]. Any legal
+        action or proceeding arising under this Agreement shall be brought exclusively in the federal or state courts
+        located in [Your Jurisdiction], and the parties consent to the personal jurisdiction of such courts.</p>
+
+    <p><strong>CONTACT INFORMATION</strong></p>
+    <p>If you have any questions or concerns regarding this Agreement, please contact us at [Your Contact Information].
+    </p>
+</body>
+
+</html>
